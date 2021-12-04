@@ -1,10 +1,10 @@
 "use strict";
 const Route = use("Route");
 
-// api prefix = '/api/admin/*'
+// api prefix = '/api/v1/admin/*'
 
 Route.group(() => {
-  Route.get("/", "AuthController.get");
+  Route.post("/auth/login", "AuthController.login");
 })
   .namespace("Admin")
-  .prefix("/api/admin");
+  .prefix("/api/v1/admin");

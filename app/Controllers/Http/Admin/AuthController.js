@@ -1,9 +1,10 @@
 "use strict";
 
+// Models
+const Admin = use("App/Models/Admin");
+
 class AuthController {
-  get() {
-    return "hello";
-  }
+  async login({ request, response, auth }) {}
 }
 
 module.exports = AuthController;
