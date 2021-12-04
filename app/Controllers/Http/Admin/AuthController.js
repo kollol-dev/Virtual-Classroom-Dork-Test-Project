@@ -4,15 +4,51 @@
 const Admin = use("App/Models/Admin");
 
 // Plugins & Exceptions
+const CustomException = use("App/Exceptions/CustomException");
 const { validate } = use("Validator");
-const CustomException = use('App/Exceptions/CustomException')
-
+const jwt_decode = require("jwt-decode");
 class AuthController {
   async login({ request, response, auth }) {
+    const rules = {
+      email: "required|email",
+      password: "required|string",
+    };
+
+    // validate request body
+    const validation = await validate(request.body, rules);
+
+    // incomplete / invalid request
+    if (validation.fails()) {
+      return response.status(401).json({
+        message: "Invalid credentials or request body is incomplete or invalid",
+        status: "Fail",
+      });
+    }
+
+    /*
+      Checking if this email exists or not.
+      If not, throw exception of status code 400 
+    */
+    if ((await Admin.query().where("email", request.body.email).count()) == 0) {
+      throw CustomException("", 400, "");
+    }
+
     try {
-      let user = await authUser();
+      let authAttemptResponse = await auth
+        .authenticator("admin")
+        .attempt(request.body.email, request.body.password);
+      if (authAttemptResponse && authAttemptResponse.token) {
+        return response.status(200).json({
+          accessToken: authAttemptResponse.token,
+          tokenDecode: jwt_decode(authAttemptResponse.token),
+        });
+      }
+      return authAttemptResponse;
     } catch (error) {
-      throw new CustomException('', 401, '')
+      return response.status(401).json({
+        message: "Invalid Credentials",
+        status: "Fail",
+      });
     }
   }
 }
