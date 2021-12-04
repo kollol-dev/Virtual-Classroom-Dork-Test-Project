@@ -43,6 +43,6 @@ application will be serving at `http://localhost:3333`
 
 ### REST APIs
 
-| Endpoint                                  | Method      | Purpose             |
-| ----------------------------------------- | ----------- | ------------------- |
-| /api/admin/auth/login                     | post        | Admin's Login       |
+| Endpoint                                     | Method      | Purpose             |
+| -----------------------------------------    | ----------- | ------------------- |
+| /api/v1/admin/auth/login                     | post        | Admin's Login       |
