@@ -15,7 +15,7 @@ const Factory = use("Factory");
 
 class AdminSeeder {
   async run() {
-    const admin = await Factory.model("App/Models/Admin").create();
+    await Factory.model("App/Models/Admin").create();
   }
 }
 
