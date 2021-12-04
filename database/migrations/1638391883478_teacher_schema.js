@@ -7,6 +7,9 @@ class TeacherSchema extends Schema {
   up () {
     this.create('teachers', (table) => {
       table.increments()
+      table.string('fullName', 254).notNullable()
+      table.string('email', 254).notNullable().unique()
+      table.string('password').notNullable()
       table.timestamps()
     })
   }
