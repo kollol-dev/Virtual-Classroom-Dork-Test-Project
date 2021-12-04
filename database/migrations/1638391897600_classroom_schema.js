@@ -9,7 +9,7 @@ class ClassroomSchema extends Schema {
       table.increments();
       table.integer("teacher_id").unsigned().references("id").inTable("teachers").onDelete('CASCADE');
       table.string("invitation_code", 100).notNullable();
-      table.string("status", 20).defaultTo("running");
+      table.string("status", 20).defaultTo("running").comment('running or stopped');
       table.timestamps();
     });
   }
