@@ -25,10 +25,11 @@ adonis key:generate
 
 ### Migrations
 
-Run the following command to run startup migrations.
+Run the following command to run startup migrations and seed Admin.
 
 ```
 adonis migration:run
+adonis seed
 ```
 
 ### Run development server
