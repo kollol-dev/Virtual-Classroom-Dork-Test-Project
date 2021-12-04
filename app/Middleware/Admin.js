@@ -7,6 +7,7 @@ class Admin {
     } catch (error) {
       return response.status(401).json({
         message: "You are not admin!",
+        status: "Fail",
       });
     }
     // call next to advance the request

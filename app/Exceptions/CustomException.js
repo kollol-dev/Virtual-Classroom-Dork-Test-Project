@@ -6,7 +6,6 @@ class CustomException extends LogicalException {
   handle(error, { response }) {
     let message = "";
     switch (error.status) {
-      
       case 400:
         message = "Bad Request";
       case 401:

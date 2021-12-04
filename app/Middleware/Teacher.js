@@ -7,6 +7,7 @@ class Teacher {
     } catch (error) {
       return response.status(401).json({
         message: "You are not teacher!",
+        status: "Fail",
       });
     }
 
