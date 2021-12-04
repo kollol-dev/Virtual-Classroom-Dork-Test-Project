@@ -1,1 +1,1 @@
-import "./routes/admin"
+require("./routes/admin")
