@@ -2,7 +2,7 @@
 
 class TeacherLoggedIn {
   async handle({ request }, next) {
-    if (auth.authenticator("teacher").check())
+    if (auth.authenticator("teacherstudent").check())
       return response.status(400).json({
         message: "You have already logged in.",
         status: "Fail",

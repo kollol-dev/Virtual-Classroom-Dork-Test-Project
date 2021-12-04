@@ -7,6 +7,7 @@ const Admin = use("App/Models/Admin");
 const CustomException = use("App/Exceptions/CustomException");
 const { validate } = use("Validator");
 const jwt_decode = require("jwt-decode");
+
 class AuthController {
   async login({ request, response, auth }) {
     const rules = {
