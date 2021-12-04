@@ -3,10 +3,18 @@
 // Models
 const Admin = use("App/Models/Admin");
 
-// plugins
-const { validate } = use('Validator')
+// Plugins & Exceptions
+const { validate } = use("Validator");
+const CustomException = use('App/Exceptions/CustomException')
+
 class AuthController {
-  async login({ request, response, auth }) {}
+  async login({ request, response, auth }) {
+    try {
+      let user = await authUser();
+    } catch (error) {
+      throw new CustomException('', 401, '')
+    }
+  }
 }
 
 module.exports = AuthController;
