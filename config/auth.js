@@ -2,7 +2,11 @@
 const Env = use("Env");
 
 module.exports = {
+
+
+  // Defalt authenticator plugin is Admin.
   authenticator: "admin",
+  
 
   // Authenticator Plugin for Admin
   // Model: App/Models/Admin
