@@ -3,17 +3,22 @@ const Route = use("Route");
 
 // api prefix = '/api/v1/admin/*'
 
-// login
+/* login */
 Route.group(() => {
-    Route.post("/auth/login", "AuthController.login");
-  })
-    .namespace("Admin")
-    .prefix("/api/v1/admin")
-    .middleware(['adminLoggedIn']);
+  Route.post("/auth/login", "AuthController.login");
+})
+  .namespace("Admin")
+  .prefix("/api/v1/admin")
+  .middleware(["adminLoggedIn"]);
 
-// other admin routes with middleware
+/* other admin routes with middleware */
 Route.group(() => {
   // Route.post("/auth/login", "AuthController.login");
+
+  Route.get("/teacher/get/paginate", "TeacherController.paginateTeachers");
+  Route.get("/teacher/add/new", "TeacherController.addNewTeacher");
+  Route.get("/teacher/edit/:id", "TeacherController.editTeacherByTeacherId");
+  Route.get("/teacher/delete/:id", "TeacherController.deleteTeacherByTeacherId");
 })
   .namespace("Admin")
   .prefix("/api/v1/admin")
