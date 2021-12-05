@@ -50,9 +50,7 @@ application will be serving at `http://localhost:3333`
 | Endpoint                           | Method | Purpose                 |
 | ---------------------------------- | ------ | ----------------------- |
 | /api/v1/admin/auth/login           | post   | Admin's Login           |
-| /api/v1/admin/teacher/get/paginate | post   | Paginate all teachers   |
+| /api/v1/admin/teacher/get/paginate | get    | Paginate all teachers   |
 | /api/v1/admin/teacher/add/new      | post   | Add new teacher         |
-| /api/v1/admin/teacher/edit/:id     | post   | Edit specific teacher   |
-| /api/v1/admin/teacher/delete/:id   | post   | Delete specific teacher |
-
-
+| /api/v1/admin/teacher/edit/:id     | put    | Edit specific teacher   |
+| /api/v1/admin/teacher/delete/:id   | delete | Delete specific teacher |
