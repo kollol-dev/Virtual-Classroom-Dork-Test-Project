@@ -10,7 +10,7 @@ Route.group(() => {
 
 }).namespace("Student")
     .prefix("/api/v1/student")
-    .middleware(['studentLoggedIn']);
+
 
 
 
@@ -22,7 +22,7 @@ Route.group(() => {
     Route.post('/classroom/:class_id/posts/result/submit', 'ClassRoomPostController.submitResultByClassId');
     /* Classroom post routes ends */
 
-    
+
     // wildcard routes
     Route.any('*', () => {
         throw CustomException("", 404, "");;
@@ -30,7 +30,7 @@ Route.group(() => {
 })
     .namespace("Student")
     .prefix("/api/v1/student")
-    .middleware(["student"]);
+
 
 
 

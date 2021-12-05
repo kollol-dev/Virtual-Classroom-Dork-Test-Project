@@ -39,10 +39,8 @@ const namedMiddleware = {
   guest: 'Adonis/Middleware/AllowGuestOnly',
   admin: "App/Middleware/Admin",
   teacher: "App/Middleware/Teacher",
-  student: "App/Middleware/Student",
   adminLoggedIn: "App/Middleware/AdminLoggedIn",
   teacherLoggedIn: "App/Middleware/TeacherLoggedIn",
-  studnetLoggedIn: "App/Middleware/StudnetLoggedIn",
 }
 
 /*
