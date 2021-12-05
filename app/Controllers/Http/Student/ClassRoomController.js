@@ -8,7 +8,6 @@ const ClassroomSubscribedStudent = use("App/Models/ClassroomSubscribedStudent");
 // Plugins & Exceptions
 const CustomException = use("App/Exceptions/CustomException");
 const { validate } = use("Validator");
-const { pagination } = require("../../../Modules/Common");
 
 class ClassRoomController {
     async subscribeToClass({ request, response, auth }) {
