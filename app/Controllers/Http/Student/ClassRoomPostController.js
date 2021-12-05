@@ -36,6 +36,11 @@ class ClassRoomPostController {
                 .paginate(page, pagination)
         })
     }
+
+
+    async submitResultByClassId({ request, response }){
+        
+    }
 }
 
 module.exports = ClassRoomPostController
