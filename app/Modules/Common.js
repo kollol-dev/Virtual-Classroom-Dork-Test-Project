@@ -13,19 +13,17 @@ const generateRandomString = (length) => {
   return retVal;
 };
 
-
 const sendEmail = (to, subject, emailBody) => {
   const message = {
     to: to,
-    from: "dazzling.cloudlet@gmail.com",
+    from: "dazzling.cloudlet@gmail.com", // Use the email address or domain you verified above
     subject: subject,
+    text: " ",
     html: emailBody,
   };
   sgMail.send(message).then(
     () => {},
     (error) => {
-      console.error(error);
-
       if (error.response) {
         console.error(error.response.body);
       }

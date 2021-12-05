@@ -16,9 +16,9 @@ Route.group(() => {
   // Route.post("/auth/login", "AuthController.login");
 
   Route.get("/teacher/get/paginate", "TeacherController.paginateTeachers");
-  Route.get("/teacher/add/new", "TeacherController.addNewTeacher");
-  Route.get("/teacher/edit/:id", "TeacherController.editTeacherByTeacherId");
-  Route.get("/teacher/delete/:id", "TeacherController.deleteTeacherByTeacherId");
+  Route.post("/teacher/add/new", "TeacherController.addNewTeacher");
+  Route.put("/teacher/edit/:id", "TeacherController.editTeacherByTeacherId");
+  Route.delete("/teacher/delete/:id", "TeacherController.deleteTeacherByTeacherId");
 })
   .namespace("Admin")
   .prefix("/api/v1/admin")
