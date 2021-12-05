@@ -54,3 +54,33 @@ application will be serving at `http://localhost:3333`
 | /api/v1/admin/teacher/add/new      | post   | Add new teacher         |
 | /api/v1/admin/teacher/edit/:id     | put    | Edit specific teacher   |
 | /api/v1/admin/teacher/delete/:id   | delete | Delete specific teacher |
+
+#### Teacher
+
+| Endpoint                                      | Method | Purpose                 |
+| --------------------------------------------- | ------ | ----------------------- |
+| /api/v1/admin/auth/login                      | post   | Admin's Login           |
+| /api/v1/admin/auth/logout                     | post   | Admin's Logout          |
+| /api/v1/admin/teacher/classroom/get/paginate  | get    | Paginate all classrooms |
+| /api/v1/admin/teacher/classroom/add/new       | post   | Add new classroom       |
+| /api/v1/admin/teacher/classroom/end/:class_id | put    | End specific class      |
+
+| Endpoint                                                      | Method | Purpose                                    |
+| ------------------------------------------------------------- | ------ | ------------------------------------------ |
+| /api/v1/admin/teacher/classroom/:class_id/posts/get/paginate  | get    | Paginate all posts of a classroom          |
+| /api/v1/admin/teacher/classroom/:class_id/posts/add/new       | post   | Add new post(Exam/Assignment) in classroom |
+| /api/v1/admin/teacher/classroom/:class_id/posts/result/submit | put    | Submit result of a post in a classroom     |
+
+#### Student
+
+| Endpoint                                                | Method | Purpose                        |
+| ------------------------------------------------------- | ------ | ------------------------------ |
+| /api/v1/student/classroom/subscribe                     | post   | Subscribe into a class         |
+| /api/v1/student/classroom/:class_id/posts/get/paginate  | get    | Get upcoming Exam / Asignments |
+| /api/v1/student/classroom/:class_id/posts/result/submit | put    | Submit Answer                  |
+
+#### File Upload
+
+| Endpoint            | Method | Purpose        |
+| ------------------- | ------ | -------------- |
+| /api/v1/upload/file | post   | Uploading File |
