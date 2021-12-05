@@ -11,12 +11,21 @@ const { pagination, generateRandomString } = require("../../../Modules/Common")
 
 class ClassRoomPostController {
 
-    async paginateClassRoomPosts({ request, response }) {
+    async paginateClassRoomPosts({ request, response, auth }) {
         let page = request.input('page', 1)
+
+        try {
+            var teacher = await auth.authenticator('teacher').getUser()
+        } catch (error) {
+            throw new CustomException("", 401, "")
+        }
 
         return response.status(200).json({
             status: 'Success',
-            response: await ClassroomPost.query().paginate(page, pagination)
+            response: await ClassroomPost.query()
+                .where('teacher_id', teacher.id)
+                .with('classroom')
+                .paginate(page, pagination)
         })
     }
 

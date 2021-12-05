@@ -4,6 +4,10 @@
 const Model = use('Model')
 
 class ClassroomPost extends Model {
+
+    classroom() {
+        return this.belongsTo('App/Models/Classroom')
+    }
 }
 
 module.exports = ClassroomPost

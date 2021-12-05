@@ -29,6 +29,10 @@ class ClassRoomPostController {
             status: 'Success',
             response: await ClassroomPost.query()
                 .whereIn('id', classRoomIds)
+                .where('deadline', '>', moment().format('YYYY-MM-DD H:mm:ss'))
+                .whereHas('classroom', builder => {
+                    builder.where('status', 'running')
+                })
                 .paginate(page, pagination)
         })
     }
