@@ -1,7 +1,7 @@
 "use strict";
 
 class Student {
-  async handle({ request }, next) {
+  async handle({ response, auth }, next) {
     try {
       await auth.authenticator("student").check();
     } catch (error) {

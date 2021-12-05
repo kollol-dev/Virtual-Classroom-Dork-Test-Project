@@ -5,11 +5,11 @@ const Route = use("Route");
 
 // login
 Route.group(() => {
-  Route.post("/auth/login", "AuthController.login");
-})
-  .namespace("Admin")
-  .prefix("/api/v1/admin")
-  .middleware(['adminLoggedIn']);
+    Route.post("/auth/login", "AuthController.login");
+  })
+    .namespace("Admin")
+    .prefix("/api/v1/admin")
+    .middleware(['adminLoggedIn']);
 
 // other admin routes with middleware
 Route.group(() => {

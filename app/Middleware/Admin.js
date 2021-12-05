@@ -1,7 +1,7 @@
 "use strict";
 
 class Admin {
-  async handle({ request }, next) {
+  async handle({ response, auth }, next) {
     try {
       await auth.authenticator("admin").check();
     } catch (error) {
