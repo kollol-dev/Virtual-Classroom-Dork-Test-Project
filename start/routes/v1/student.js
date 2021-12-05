@@ -21,12 +21,17 @@ Route.group(() => {
     Route.get('/classroom/:class_id/posts/get/paginate', 'ClassRoomPostController.paginateClassRoomPostsByStudnetId');
     Route.post('/classroom/:class_id/posts/result/submit', 'ClassRoomPostController.submitResultByClassId');
     /* Classroom post routes ends */
-
-
-    Route.any('*', () => {
-        throw CustomException("", 404, "");;
-    })
 })
     .namespace("Student")
     .prefix("/api/v1/student")
     .middleware(["student"]);
+
+
+
+// Upload Api
+Route.post('/api/v1/upload', 'UploadController.uploadFile');
+
+
+Route.any('*', () => {
+    throw CustomException("", 404, "");;
+})
