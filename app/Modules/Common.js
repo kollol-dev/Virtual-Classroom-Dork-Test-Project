@@ -2,6 +2,7 @@
 const Env = use("Env");
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(Env.get("SENDGRID_API_KEY"));
+
 const pagination = 15;
 
 const generateRandomString = (length) => {

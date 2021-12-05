@@ -26,15 +26,24 @@ class TeacherController {
   }
 
   async addNewTeacher({ request, response }) {
-    // if (!request.body.fullName) {
-    //   return response.status(401).json({
-    //     message: "Invalid Request",
-    //   });
-    // }
+    const rules = {
+      fullName: "required|string|max:254",
+      email: "required|email|unique:teachers,email",
+    };
+
+    const messages = {
+      "fullName.required": "Full name is required",
+      "email.required": "Email is required",
+      "email.unique": "Email already is in use",
+    };
+
+    const validation = await validate(request.all(), rules, messages);
+    if (validation.fails()) {
+      return response.status(400).json(validation.messages());
+    }
 
     // generate password for teacher
     let password = generateRandomString(12);
-
 
     let teacher = await Teacher.create({
       fullName: request.body.fullName,
@@ -55,23 +64,28 @@ class TeacherController {
 
   async editTeacherByTeacherId({ request, response, params }) {
     const rules = {
-      name: "required",
+      fullName: "required|string|max:254",
+      email: "email|unique:teachers,email",
     };
 
-    const validation = await validate(request.all(), rules);
+    const messages = {
+      "fullName.required": "Full name is required",
+      "email.required": "Email is required",
+      "email.unique": "Email already is in use",
+    };
+
+    const validation = await validate(request.all(), rules, messages);
     if (validation.fails()) {
-      return response.status(403).json({
-        success: false,
-        message: "Invalid Request!",
-      });
+      return response.status(400).json(validation.messages());
     }
-    let category = await Category.query().where("id", params.id).update({
-      name: request.body.name,
+    let teacher = await Teacher.query().where("id", params.id).update({
+      fullName: request.body.fullName,
+      email: request.body.email,
     });
-    if (category)
+    if (teacher)
       return response.status(201).json({
         success: true,
-        message: "Category edited successfully",
+        message: "Teacher edited successfully",
       });
     return response.status(500).json({
       success: false,
@@ -80,11 +94,11 @@ class TeacherController {
   }
 
   async deleteTeacherByTeacherId({ params, response }) {
-    let deleteCheck = await Category.query().where("id", params.id).delete();
+    let deleteCheck = await Teacher.query().where("id", params.id).delete();
     if (deleteCheck)
       return response.status(200).json({
         success: true,
-        message: "Category deleted successfully",
+        message: "Teacher deleted successfully",
       });
 
     return response.status(500).json({
