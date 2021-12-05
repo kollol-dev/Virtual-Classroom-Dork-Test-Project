@@ -19,6 +19,23 @@ class ClassRoomController {
             invitation_code: 'required|string|max:254',
         };
 
+        const messages = {
+            "fullName.required": "Full name is required",
+            "email.required": "Email is required",
+            "email.unique": "Email already is in use",
+            "school_id.required": "School ID is required",
+            "invitation_code.required": "Invitation CODE is required",
+        };
+
+        // validate request body
+        const validation = await validate(request.body, rules, messages);
+
+        // incomplete / invalid request
+        if (validation.fails()) {
+            return response.status(400).json(validation.messages());
+        }
+
+
         // check for classroom
         let checkCounter = await Classroom.query()
             .where("invitation_code", request.body.invitation_code)
