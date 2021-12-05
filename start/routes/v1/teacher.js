@@ -11,7 +11,7 @@ Route.group(() => {
     /*  Auth Routes Ends */
 }).namespace("Teacher")
     .prefix("/api/v1/teacher")
-// .middleware(['teacherLoggedIn']);
+    .middleware(['teacherLoggedIn']);
 
 
 
@@ -32,4 +32,4 @@ Route.group(() => {
 })
     .namespace("Teacher")
     .prefix("/api/v1/teacher")
-    // .middleware(["teacher"]);
+    .middleware(["teacher"]);
