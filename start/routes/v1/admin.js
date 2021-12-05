@@ -1,5 +1,7 @@
 "use strict";
 const Route = use("Route");
+const CustomException = use("App/Exceptions/CustomException");
+
 
 /* ***********************   api prefix = '/api/v1/admin/*'   *********************** */
 
@@ -20,6 +22,12 @@ Route.group(() => {
   Route.put("/teacher/edit/:id", "TeacherController.editTeacherByTeacherId");
   Route.delete("/teacher/delete/:id", "TeacherController.deleteTeacherByTeacherId");
   /* teacher CRUD routes */
+
+
+
+  Route.any('*', () => {
+    throw CustomException("", 404, "");;
+  })
 
 })
   .namespace("Admin")
