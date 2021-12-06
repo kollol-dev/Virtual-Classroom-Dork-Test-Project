@@ -27,9 +27,9 @@
     "@adonisjs/validator": "^5.1.0",
     "@sendgrid/mail": "^7.6.0",
     "jwt-decode": "^3.1.2",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "node-cron": "^3.0.0"
   },
-  "devDependencies": {},
   "autoload": {
     "App": "./app"
   }
