@@ -2,6 +2,7 @@
 
 I've used mysql database and designd the database at [here](https://dbdiagram.io/d/61a692908c901501c0da2e69).
 
+Deployed at [heroku](https://virtual-classroomm.herokuapp.com/)
 ## Setup
 
 Copy from `.env.example` to `.env`
