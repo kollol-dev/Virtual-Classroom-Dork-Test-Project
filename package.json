@@ -5,7 +5,7 @@
   "description": "Virtual Class Room - Backend Test Project For Dorik",
   "main": "index.js",
   "scripts": {
-    "start": "cp .env.example .env && npm i -g @adonisjs/cli && adonis key:generate && adonis serve --dev",
+    "start": "cp .env.example .env && npm i -g @adonisjs/cli && adonis serve --dev",
     "test": "node ace test"
   },
   "keywords": [
