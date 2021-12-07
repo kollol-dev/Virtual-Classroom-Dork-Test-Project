@@ -110,10 +110,8 @@ class ClassRoomController {
         });
     }
 
-
     /*  checking for upcoming exams
         returns boolean  */
-
     async checkForUpcomingExam(student_id) {
         let examCounter = await ClassroomPost.whereHas('subscribedStudents', builder => {
             builder.where('student_id', student_id)
