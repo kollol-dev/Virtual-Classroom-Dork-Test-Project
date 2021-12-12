@@ -9,10 +9,10 @@ class AdminLoggedIn {
           status: "Fail",
         });
     } catch (error) {
-      return response.status(400).json({
-        message: "Invalid JWT Token.",
-        status: "Fail",
-      });
+      // return response.status(400).json({
+      //   message: "Invalid JWT Token.",
+      //   status: "Fail",
+      // });
     }
 
     // call next to advance the request
