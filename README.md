@@ -35,6 +35,13 @@ adonis migration:run
 adonis seed
 ```
 
+#### Admin credential 
+```
+email: admin@mail.com
+passowrd: 123123
+```
+
+
 ### Run development server
 
 ```
